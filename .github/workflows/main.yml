@@ -19,8 +19,8 @@ jobs:
 
       - name: Log into docker hub
         run: |
-          docker login -u balav8 -p $ {{ secrets.DOCKERHUB_TOKEN }}
-
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_TOKEN }}" --password-stdin
+          
       - name: Push into dockerhub
         run: |
           docker push balv8/hello-world-app
