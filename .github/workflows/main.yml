@@ -16,3 +16,11 @@ jobs:
       - name: Build DOcker image
         run: |
           docker build -t hello-world-app .
+
+      - name: tag docker image
+        run: |
+          docker tag hello-world-app balav8/hello-world-app:latest
+
+      - name: Push docker image
+        run: |
+          docker push balav8/hello-world-app:latest
